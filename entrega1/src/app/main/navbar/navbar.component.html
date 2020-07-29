@@ -1,10 +1,23 @@
 <!--Barra de navegacion-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">HEROES</a>
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/A-64.png">
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/homeDc']">DC</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/homeMarvel']">MARVEL</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/']">MARVEL</a>
+            </li>
+            
+        </ul>
     </div>
 </nav>

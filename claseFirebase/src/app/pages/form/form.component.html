@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 *ngIf="id == 'nuevo'">Nuevo registro</h1>
+    <h1 *ngIf="id != 'nuevo'">Actualizacion</h1>
+
+    <div class="form-row">
+        <strong>ID: {{usuarios.id_usuario}}</strong>
+    </div>
+    <div class="form-row">
+        <label>Nombre:</label>
+        <input class="form-control" [(ngModel)]="usuarios.Nombre" name="Nombre">
+    </div>
+    <div class="form-row">
+        <label>Apellido:</label>
+        <input class="form-control" [(ngModel)]="usuarios.Apellido" name="Apellido">
+    </div>
+    <div class="form-row">
+        <label>Telefono:</label>
+        <input class="form-control" [(ngModel)]="usuarios.Telefono" name="Telefono">
+    </div>
+</div>
