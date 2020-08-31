@@ -19,20 +19,22 @@ export class UserComponent implements OnInit {
 
   constructor(private _activatedRoute: ActivatedRoute, private _RestService: RestService) {
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
-    if(this.id == 'new'){
+    if(this.id === 'new'){
       this.usuario.id_usuario = null;
-    }else{
-      this._RestService.getUsuario(this.id).subscribe((res:UsuarioModel) => this.usuario = res)
-      this.usuario.id_usuario = this.id;
+    }else if(this.id != "new"){
+      this._RestService.getUsuario(this.id).subscribe((res: UsuarioModel) => {
+        this.usuario = res;
+        this.usuario.id_usuario = this.id;
+      });
     }
-    console.log(this._activatedRoute.snapshot.paramMap.get('id'));
+    console.log(this.usuario.id_usuario);
   }
 
   ngOnInit(): void {
   }
 
  guardar(form: NgForm){
-   console.log(form);
+   console.log(this.usuario);
    
    if (form.invalid){
       this.error = true;
@@ -53,7 +55,7 @@ export class UserComponent implements OnInit {
 
    if (this.usuario.id_usuario){
       this.error = false;
-      peticion= this._RestService.putUsuario(this.usuario);
+      peticion = this._RestService.putUsuario(this.usuario);
       
     }else{
       this.error = false;
